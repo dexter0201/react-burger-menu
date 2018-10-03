@@ -19,12 +19,13 @@ const styles = {
   },
 
   menuWrap(isOpen, width, right) {
-    return {
+    var styles = {
       position: 'fixed',
       right: right ? 0 : 'inherit',
       zIndex: 1100,
       width,
       height: '100%',
+      display: isOpen ? 'block' : 'none',
       MozTransform: isOpen
         ? ''
         : right
@@ -52,6 +53,11 @@ const styles = {
           : 'translate3d(-100%, 0, 0)',
       transition: 'all 0.5s'
     };
+    if (isOpen) {
+      styles.left = '0px';
+    }
+
+    return styles;
   },
 
   menu() {
